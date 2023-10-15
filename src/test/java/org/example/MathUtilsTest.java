@@ -3,6 +3,8 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -56,4 +58,24 @@ public class MathUtilsTest {
         boolean result = mathUtils.bigger(5, 5);
         assertFalse(result);
     }
+
+    @Test
+    public void testDivide () {
+        float result = mathUtils.divide(10.5f, 4.8f);
+        assertEquals(result,2.1875, 0.001);
+    }
+
+    @Test
+    public void testMultiply() {
+        float result = mathUtils.multiply(5.0f, 3.0f);
+        assertEquals(result, 15.0, 0.001);
+    }
+
+    @ParameterizedTest
+    @ValueSource(floats = {1.6f, 2.98f, 8.44f, 4.7f, 5.06f})
+    public void testSquare(float number) {
+        float result = mathUtils.square(number);
+        assertEquals(number * number, result, 0.001);
+    }
+
 }
