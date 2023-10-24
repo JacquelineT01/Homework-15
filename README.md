@@ -10,3 +10,11 @@
 | 8  | Divide float numbers            | Pass   |
 | 9  | Multiply float numbers          | Pass   |
 | 10 | Squaring float numbers          | Pass   |
+
+
+
+| N | Check Name   | Status |
+|---|--------------|--------|
+| 1 | testNoRoots  | Pass   |
+| 2 | testOneRoot  | Pass   |
+| 3 | testTwoRoots | Pass   |
