@@ -10,17 +10,18 @@ import java.util.ArrayList;
 import static io.restassured.RestAssured.given;
 
 public class BlackJack {
+
     public static void main(String[] args) {
-Response response =
-        given().
-                log().
-                all().
-                get("https://deckofcardsapi.com/api/deck/new/").
-                then().
-                log().
-                all().
-                extract().
-                response();
+        Response response =
+                given().
+                        log().
+                        all().
+                        get("https://deckofcardsapi.com/api/deck/new/").
+                        then().
+                        log().
+                        all().
+                        extract().
+                        response();
 
 // Deserialization
         BlackJackDto result = new Gson().fromJson(response.asString(), BlackJackDto.class);
@@ -40,15 +41,15 @@ Response response =
 
         //Drawing cards
         Response responseCards =
-        given().
-                log().
-                all().
-                get(urLForCards).
-                then().
-                log().
-                all().
-                extract().
-                response();
+                given().
+                        log().
+                        all().
+                        get(urLForCards).
+                        then().
+                        log().
+                        all().
+                        extract().
+                        response();
 
         // Parse the JSON response using JsonPath
         JsonPath jsonPath = JsonPath.from(response.asString());
@@ -59,8 +60,5 @@ Response response =
         // Convert ArrayList to String[]
         String[] values = valuesList.toArray(new String[0]);
 
-
     }
 }
-
-
