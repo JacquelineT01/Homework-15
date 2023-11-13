@@ -1,4 +1,4 @@
-package org.example;
+package dto;
 
 public class BlackJackDto {
     boolean success;

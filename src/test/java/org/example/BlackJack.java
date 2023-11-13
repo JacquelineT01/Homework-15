@@ -1,6 +1,7 @@
 package org.example;
 
 import com.google.gson.Gson;
+import dto.BlackJackDto;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
@@ -22,7 +23,7 @@ Response response =
                 response();
 
 // Deserialization
-        BlackJackDto result = new Gson().fromJson(response.asString(),BlackJackDto.class);
+        BlackJackDto result = new Gson().fromJson(response.asString(), BlackJackDto.class);
         String deckId = result.getDeck_id();
 
         String urLForCards = "https://deckofcardsapi.com/api/deck/" + deckId + "/draw/?count=6";
@@ -61,3 +62,5 @@ Response response =
 
     }
 }
+
+
